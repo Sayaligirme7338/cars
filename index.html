@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Nil ❤️</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd1e1 0%, #fff0f5 50%, #ffe4ec 100%);
+    color: #5c1d32;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .heart-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .floating-heart {
+    position: absolute;
+    bottom: -50px;
+    color: rgba(224, 86, 128, 0.35);
+    font-size: 20px;
+    animation: floatUp 8s linear infinite;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) rotate(0deg) scale(0.8);
+      opacity: 0;
+    }
+    20% { opacity: 0.8; }
+    100% {
+      transform: translateY(-110vh) rotate(360deg) scale(1.3);
+      opacity: 0;
+    }
+  }
+
+  .page {
+    min-height: 100vh;
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 35px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .main-heart {
+    font-size: 70px;
+    animation: pulse 1.2s ease-in-out infinite;
+    display: inline-block;
+    filter: drop-shadow(0 6px 12px rgba(200, 50, 90, 0.25));
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+  }
+
+  h1 {
+    color: #c93663;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 20px 0 12px;
+    line-height: 1.35;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #7a3148;
+    margin-bottom: 25px;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 30px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #e63972, #c92a58);
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    box-shadow: 0 10px 22px rgba(215, 70, 114, 0.35);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .photos-container {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .polaroid-card {
+    background: white;
+    padding: 12px 12px 18px 12px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(100, 40, 60, 0.15);
+    transform: rotate(-1.5deg);
+    transition: transform 0.3s ease;
+  }
+
+  .polaroid-card:nth-child(even) {
+    transform: rotate(1.5deg);
+  }
+
+  .polaroid-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .message {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-radius: 22px;
+    padding: 24px;
+    margin-top: 10px;
+    line-height: 1.85;
+    font-size: 15px;
+    box-shadow: 0 10px 28px rgba(100, 40, 60, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .small {
+    font-size: 13px;
+    color: #9a6878;
+    margin-top: 22px;
+  }
+
+  .audio-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    border: 1px solid #e08ba7;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+    z-index: 100;
+  }
+</style>
+</head>
+
+<body>
+
+  <div class="heart-bg" id="heartBg"></div>
+
+  <button class="audio-btn hidden" id="musicToggle" onclick="toggleMusic()">🎵</button>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://pagalnew.com/128/Saiyaara/Tum%20Ho%20Toh%20-%20Saiyaara.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="page" id="intro">
+    <div class="main-heart">❤️️</div>
+    <h1>Someone special has a surprise for you…</h1>
+    <p class="subtitle">
+      Nil, this little surprise is only for you. 🥺💕
+      <br><br>
+      Tap below to open it.
+    </p>
+    <button class="btn" onclick="openSurprise()">Open My Surprise 💌</button>
+  </div>
+
+  <div class="page hidden" id="surprise">
+    <div class="main-heart">❤️</div>
+    <h1>Happy Boyfriend Day, Nil! ❤️</h1>
+    <p class="subtitle">To my favourite person, my comfort and my happiness… 🥺</p>
+
+    <div class="photos-container">
+      <div class="polaroid-card">
+        <img src="1000412666.jpg" alt="Nil Photo 1">
+      </div>
+      <div class="polaroid-card">
+        <img src="1000412665.jpg" alt="Nil Photo 2">
+      </div>
+    </div>
+
+    <div class="message">
+      You are one of the most beautiful parts of my life. 🥺❤️
+      <br><br>
+      Thank you for being there for me, understanding me, and making even ordinary moments feel special. ❤️️
+      <br><br>
+      I love you so, so much, Nil. ❤️
+      <br><br>
+      I hope we keep making countless beautiful memories together. ✨
+      <br><br>
+      You are special to me today, tomorrow and always. ❤️
+    </div>
+
+    <p class="small">Made with love, just for you. 💕</p>
+  </div>
+
+  <script>
+    const bg = document.getElementById('heartBg');
+    const heartSymbols = ['❤️', '💖', '💕', '🌸', '✨'];
+
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart';
+      heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.animationDuration = (5 + Math.random() * 6) + 's';
+      heart.style.animationDelay = (Math.random() * 5) + 's';
+      heart.style.fontSize = (16 + Math.random() * 16) + 'px';
+      bg.appendChild(heart);
+    }
+
+    function openSurprise() {
+      document.getElementById("intro").classList.add("hidden");
+      document.getElementById("surprise").classList.remove("hidden");
+      document.getElementById("musicToggle").classList.remove("hidden");
+      
+      const audio = document.getElementById("bgMusic");
+      audio.play().catch(e => console.log("Audio play allowed on user interaction"));
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMusic() {
+      const audio = document.getElementById("bgMusic");
+      const btn = document.getElementById("musicToggle");
+      if (audio.paused) {
+        audio.play();
+        btn.innerText = "🎵";
+      } else {
+        audio.pause();
+        btn.innerText = "🔇";
+      }
+    }
+  </script>
+
+</body>
+  </html>
+    
