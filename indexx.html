@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Nil pillaaa ❤️</title>
+<title>For My Nil ❤️</title>
 
 <style>
   * {
@@ -22,7 +22,8 @@
     position: relative;
   }
 
-  heart-bg {
+  /* Floating background hearts animation */
+  .heart-bg {
     position: fixed;
     top: 0;
     left: 0;
@@ -33,7 +34,7 @@
     overflow: hidden;
   }
 
-  floating-heart {
+  .floating-heart {
     position: absolute;
     bottom: -50px;
     color: rgba(224, 86, 128, 0.35);
@@ -53,7 +54,7 @@
     }
   }
 
-  page {
+  .page {
     min-height: 100vh;
     max-width: 430px;
     margin: 0 auto;
@@ -66,11 +67,11 @@
     z-index: 1;
   }
 
-  hidden {
+  .hidden {
     display: none !important;
   }
 
-  main-heart {
+  .main-heart {
     font-size: 70px;
     animation: pulse 1.2s ease-in-out infinite;
     display: inline-block;
@@ -90,14 +91,14 @@
     line-height: 1.35;
   }
 
-  subtitle {
+  .subtitle {
     font-size: 16px;
     line-height: 1.7;
     color: #7a3148;
     margin-bottom: 25px;
   }
 
-  btn {
+  .btn {
     border: none;
     border-radius: 30px;
     padding: 16px 32px;
@@ -112,11 +113,12 @@
     max-width: 280px;
   }
 
-  btn:active {
+  .btn:active {
     transform: scale(0.97);
   }
 
-  photos-container {
+  /* Photo Frame Layout */
+  .photos-container {
     width: 100%;
     margin: 20px 0;
     display: flex;
@@ -124,7 +126,7 @@
     gap: 20px;
   }
 
-  polaroid-card {
+  .polaroid-card {
     background: white;
     padding: 12px 12px 18px 12px;
     border-radius: 16px;
@@ -133,19 +135,19 @@
     transition: transform 0.3s ease;
   }
 
-  polaroid-card:nth-child(even) {
+  .polaroid-card:nth-child(even) {
     transform: rotate(1.5deg);
   }
 
-  polaroid-card img {
+  .polaroid-card img {
     width: 100%;
-    height: 280px;
+    height: 320px;
     object-fit: cover;
     border-radius: 10px;
     display: block;
   }
 
-  message {
+  .message {
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(8px);
     border-radius: 22px;
@@ -157,13 +159,14 @@
     border: 1px solid rgba(255, 255, 255, 0.6);
   }
 
-  small {
+  .small {
     font-size: 13px;
     color: #9a6878;
     margin-top: 22px;
   }
 
-  audio-btn {
+  /* Audio Floating Control Button */
+  .audio-btn {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -186,17 +189,20 @@
 
 <body>
 
+  <!-- Floating background hearts -->
   <div class="heart-bg" id="heartBg"></div>
 
+  <!-- Audio Toggle Button -->
   <button class="audio-btn hidden" id="musicToggle" onclick="toggleMusic()">🎵</button>
 
+  <!-- Background Audio Stream ("Tum Ho Toh" - Saiyaara) -->
   <audio id="bgMusic" loop preload="auto">
-    <audio id="bgMusic" loop src="https://lh3.googleusercontent.com/d/1ku22j1Fk7btuPKNZezp04tNY0sSbqBri">
-     
-    </audio>
+    <source src="https://pagalnew.com/128/Saiyaara/Tum%20Ho%20Toh%20-%20Saiyaara.mp3" type="audio/mpeg">
+  </audio>
 
+  <!-- FIRST PAGE (INTRO) -->
   <div class="page" id="intro">
-    <div class="main-heart">❤️️</div>
+    <div class="main-heart">❤️</div>
     <h1>Someone special has a surprise for you…</h1>
     <p class="subtitle">
       Nil, this little surprise is only for you. 🥺💕
@@ -206,23 +212,24 @@
     <button class="btn" onclick="openSurprise()">Open My Surprise 💌</button>
   </div>
 
+  <!-- SURPRISE PAGE -->
   <div class="page hidden" id="surprise">
-    <div class="main-heart">❤️</div>
-    <h1>Happy Boyfriend Day, swapnil! ❤️</h1>
+    <div class="main-heart">❤️️</div>
+    <h1>Happy Boyfriend Day, Nil! ❤️</h1>
     <p class="subtitle">To my favourite person, my comfort and my happiness… 🥺</p>
 
+    <!-- PHOTO GALLERY SECTION -->
     <div class="photos-container">
       <div class="polaroid-card">
-       <img src="https://lh3.googleusercontent.com/d/1xdxSw-NSo-1P4G7hMAXs5SyhSd3HepJ6" alt="Nil Photo 1">
+        <img src="https://lh3.googleusercontent.com/d/1xdxSw-NSo-1P4G7hMAXs5SyhSd3HepJ6" alt="Nil Photo 1">
       </div>
-      <div class="polaroid-card">
-        <img src="1000412665.jpg" alt="Nil Photo 1"></div>
     </div>
 
+    <!-- ROMANTIC MESSAGE -->
     <div class="message">
       You are one of the most beautiful parts of my life. 🥺❤️
       <br><br>
-      Thank you for being there for me, understanding me, and making even ordinary moments feel special. ❤️️
+      Thank you for being there for me, understanding me, and making even ordinary moments feel special. ❤️
       <br><br>
       I love you so, so much, Nil. ❤️
       <br><br>
@@ -235,6 +242,7 @@
   </div>
 
   <script>
+    // Create floating background hearts
     const bg = document.getElementById('heartBg');
     const heartSymbols = ['❤️', '💖', '💕', '🌸', '✨'];
 
@@ -249,6 +257,7 @@
       bg.appendChild(heart);
     }
 
+    // Page switcher & Music auto-play
     function openSurprise() {
       document.getElementById("intro").classList.add("hidden");
       document.getElementById("surprise").classList.remove("hidden");
@@ -260,6 +269,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // Audio controller
     function toggleMusic() {
       const audio = document.getElementById("bgMusic");
       const btn = document.getElementById("musicToggle");
@@ -268,12 +278,11 @@
         btn.innerText = "🎵";
       } else {
         audio.pause();
-        btn.innerText = "🎵";
+        btn.innerText = "🔇";
       }
     }
   </script>
 
 </body>
-  </html>
-
+ </html>
  
