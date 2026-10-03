@@ -22,7 +22,7 @@
     position: relative;
   }
 
-  .heart-bg {
+  heart-bg {
     position: fixed;
     top: 0;
     left: 0;
@@ -33,7 +33,7 @@
     overflow: hidden;
   }
 
-  .floating-heart {
+  floating-heart {
     position: absolute;
     bottom: -50px;
     color: rgba(224, 86, 128, 0.35);
@@ -53,7 +53,7 @@
     }
   }
 
-  .page {
+  page {
     min-height: 100vh;
     max-width: 430px;
     margin: 0 auto;
@@ -82,7 +82,7 @@
     50% { transform: scale(1.18); }
   }
 
-  .h1 {
+  h1 {
     color: #c93663;
     font-size: 28px;
     font-weight: 700;
@@ -90,14 +90,14 @@
     line-height: 1.35;
   }
 
-  .subtitle {
+  subtitle {
     font-size: 16px;
     line-height: 1.7;
     color: #7a3148;
     margin-bottom: 25px;
   }
 
-  .btn {
+  btn {
     border: none;
     border-radius: 30px;
     padding: 16px 32px;
@@ -112,11 +112,11 @@
     max-width: 280px;
   }
 
-  .btn:active {
+  btn:active {
     transform: scale(0.97);
   }
 
-  .photos-container {
+  photos-container {
     width: 100%;
     margin: 20px 0;
     display: flex;
@@ -124,7 +124,7 @@
     gap: 20px;
   }
 
-  .polaroid-card {
+  polaroid-card {
     background: white;
     padding: 12px 12px 18px 12px;
     border-radius: 16px;
@@ -133,11 +133,11 @@
     transition: transform 0.3s ease;
   }
 
-  .polaroid-card:nth-child(even) {
+  polaroid-card:nth-child(even) {
     transform: rotate(1.5deg);
   }
 
-  .polaroid-card img {
+  polaroid-card img {
     width: 100%;
     height: 280px;
     object-fit: cover;
@@ -145,7 +145,7 @@
     display: block;
   }
 
-  .message {
+  message {
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(8px);
     border-radius: 22px;
@@ -157,13 +157,13 @@
     border: 1px solid rgba(255, 255, 255, 0.6);
   }
 
-  .small {
+  small {
     font-size: 13px;
     color: #9a6878;
     margin-top: 22px;
   }
 
-  .audio-btn {
+  audio-btn {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -216,8 +216,7 @@
        <img src="https://lh3.googleusercontent.com/d/1xdxSw-NSo-1P4G7hMAXs5SyhSd3HepJ6" alt="Nil Photo 1">
       </div>
       <div class="polaroid-card">
-        <img src="1000412665.jpg" alt="Nil Photo 1">
-      </div>
+        <img src="1000412665.jpg" alt="Nil Photo 1"></div>
     </div>
 
     <div class="message">
@@ -269,7 +268,7 @@
         btn.innerText = "🎵";
       } else {
         audio.pause();
-        btn.innerText = "🔇";
+        btn.innerText = "🎵";
       }
     }
   </script>
